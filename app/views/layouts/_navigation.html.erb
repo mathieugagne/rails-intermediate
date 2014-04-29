@@ -1,0 +1,50 @@
+<ul class="nav nav-sidebar">
+  <li class="<%= 'active' if current_page?('/') %>">
+    <%= link_to 'Overview', root_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/getting-started') %>">
+    <%= link_to 'Getting Started', getting_started_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/add-project-to-git') %>">
+    <%= link_to 'Add The Project To A Git Repo', add_project_to_git_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/running-application') %>">
+    <%= link_to 'Running Your Application Locally', running_application_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/creating-migration') %>">
+    <%= link_to 'Creating A Migration', creating_migration_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/rails-architecture') %>">
+    <%= link_to 'Rails Architecture', rails_architecture_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/crud-scaffolding') %>">
+    <%= link_to 'CRUD With Scaffolding', crud_scaffolding_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/setting-default-page') %>">
+    <%= link_to 'Setting The Default Page', setting_default_page_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/deploying-to-heroku') %>">
+    <%= link_to 'Deploying to Heroku', deploying_to_heroku_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/voting-topics') %>">
+    <%= link_to 'Voting On Topics', voting_topics_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/votes-topics-association') %>">
+    <%= link_to 'Hooking Up Votes And Topics', votes_topics_association_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/allow-people-to-vote') %>">
+    <%= link_to 'Allow People To Vote', allow_people_to_vote_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/redirect-topics-after-create') %>">
+    <%= link_to 'Redirect To The Topics List After Creating A New Topic', redirect_topics_after_create_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/topic-title-link') %>">
+    <%= link_to 'Make The Topic Title A Link', topic_title_link_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/clean-up-links') %>">
+    <%= link_to 'Clean Up Links On The Topics List', clean_up_links_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/credits') %>">
+    <%= link_to 'Credits And Next Steps', credits_path %>
+  </li>
+</ul>
