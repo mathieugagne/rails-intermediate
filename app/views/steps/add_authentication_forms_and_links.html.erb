@@ -1,0 +1,38 @@
+<h1 class="page-header">Adding login forms and links to our views</h1>
+<p>
+  Everything is ready for Milo to handle authentication. Let's add the necessary forms and links for our users to authenticate.
+</p>
+<h2>Goals</h2>
+<ul>
+  <li><h4>Create a demo user</h4></li>
+  <li><h4>Block access to everyone, everywhere</h4></li>
+  <li><h4>Add a link to log out the system</h4></li>
+</ul>
+
+<h3>Step 1</h3>
+<blockquote>
+  <p>Open Rails' console and create a <code>User</code> to play around. Visit <a href="http://localhost:3000">http://localhost:3000</a> when you're done.</p>
+  <pre><code class="ruby">$ rails console
+User.create(email: 'admin@demo.com', password: 'foobar11', password_confirmation: 'foobar11')</code></pre>
+</blockquote>
+
+<h3>Step 2</h3>
+<blockquote>
+  <p>Everything is secret. Block access to everyone at the root.</p>
+  <p>Add the following line to your <code>ApplicationController</code></p>
+  <pre><code class="ruby">before_action :authenticate_user!</code></pre>
+</blockquote>
+
+<h3>Step 3</h3>
+<blockquote>
+  <p>Add a <em>sign out</em> link to the top of your views. Copy the following in your <code>app/views/layouts/application.html.erb</code> file above <code>yield</code></p>
+  <pre><code class="erb">&lt;body&gt;
+  &lt;%= link_to 'Log out', destroy_user_session_path, method: :delete %&gt;
+  &lt;%= yield %&gt;
+&lt;/body&gt;</code></pre>
+</blockquote>
+
+<h2>Explanation</h2>
+<p>
+  Behind the scenes, our application inspects our (and our engines') view folders to find the required forms. The login and registration forms live in <code>Devise</code> folder structure but could be overriden by our application. <code>Devise</code> provide an easy generator for that <code class="ruby">rails g devise:views</code>.
+</p>

@@ -11,40 +11,28 @@
   <li class="<%= 'active' if current_page?('/running-application') %>">
     <%= link_to 'Running Your Application Locally', running_application_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/creating-migration') %>">
-    <%= link_to 'Creating A Migration', creating_migration_path %>
+  <li class="<%= 'active' if current_page?('/creating-projects') %>">
+    <%= link_to 'Create Projects', creating_projects_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/rails-architecture') %>">
-    <%= link_to 'Rails Architecture', rails_architecture_path %>
+  <li class="<%= 'active' if current_page?('/validate-project-titles') %>">
+    <%= link_to 'Validate Project Titles', validate_project_titles_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/crud-scaffolding') %>">
-    <%= link_to 'CRUD With Scaffolding', crud_scaffolding_path %>
+  <li class="<%= 'active' if current_page?('/authentication-with-devise') %>">
+    <%= link_to 'Authentication with Devise', authentication_with_devise_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/setting-default-page') %>">
-    <%= link_to 'Setting The Default Page', setting_default_page_path %>
+  <li class="<%= 'active' if current_page?('/setup-users') %>">
+    <%= link_to 'Setup Users with Devise', setup_users_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/deploying-to-heroku') %>">
-    <%= link_to 'Deploying to Heroku', deploying_to_heroku_path %>
+  <li class="<%= 'active' if current_page?('/add-authentication-forms-and-links') %>">
+    <%= link_to 'Add Authentication Forms and Links', add_authentication_forms_and_links_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/voting-topics') %>">
-    <%= link_to 'Voting On Topics', voting_topics_path %>
+  <li class="<%= 'active' if current_page?('/create-comments') %>">
+    <%= link_to 'Create Comments', create_comments_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/votes-topics-association') %>">
-    <%= link_to 'Hooking Up Votes And Topics', votes_topics_association_path %>
+  <li class="<%= 'active' if current_page?('/add-projects-workflow') %>">
+    <%= link_to 'Add Workflow to your Projects', add_projects_workflow_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/allow-people-to-vote') %>">
-    <%= link_to 'Allow People To Vote', allow_people_to_vote_path %>
-  </li>
-  <li class="<%= 'active' if current_page?('/redirect-topics-after-create') %>">
-    <%= link_to 'Redirect To The Topics List After Creating A New Topic', redirect_topics_after_create_path %>
-  </li>
-  <li class="<%= 'active' if current_page?('/topic-title-link') %>">
-    <%= link_to 'Make The Topic Title A Link', topic_title_link_path %>
-  </li>
-  <li class="<%= 'active' if current_page?('/clean-up-links') %>">
-    <%= link_to 'Clean Up Links On The Topics List', clean_up_links_path %>
-  </li>
-  <li class="<%= 'active' if current_page?('/credits') %>">
-    <%= link_to 'Credits And Next Steps', credits_path %>
+  <li class="<%= 'active' if current_page?('/sort-projects') %>">
+    <%= link_to 'Sort Projects', sort_projects_path %>
   </li>
 </ul>

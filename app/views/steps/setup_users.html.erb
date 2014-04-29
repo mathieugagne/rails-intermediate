@@ -1,0 +1,32 @@
+<h1 class="page-header">Adding Users with Devise</h1>
+<p>
+  Now that you have <code>Devise</code> installed, we will ask him to create a <code>User</code> model to track access to Milo.
+</p>
+<h2>Goals</h2>
+<ul>
+  <li><h4>Create a <code>User</code> model</h4></li>
+</ul>
+
+<h3>Step 1</h3>
+<blockquote>
+  <p>
+    Use <code>Devise</code>'s generator to create the <code>User</code> model, conformed with <code>Devise</code>'s expectations and configurations.
+  </p>
+  <pre><code>rails g devise user</code></pre>
+  <p>Notice it created a <code>User</code> model, a migration and added the authentication routing rules to <code>config/routes.rb</code></p>
+</blockquote>
+
+<h3>Step 2</h3>
+<blockquote>
+  <p>Migrate your database to create a <code>users</code> table</p>
+  <pre><code>rake db:migrate</code></pre>
+</blockquote>
+
+<h2>Explanation</h2>
+<p>
+  <code>Devise</code> provided a few helper methods to ease our way into authentication.
+</p>
+<ul>
+  <li><code>current_user</code> is our signed in user instance.</li>
+  <li><code>user_signed_in?</code> returns true or false if the user is authenticated.</li>
+</ul>

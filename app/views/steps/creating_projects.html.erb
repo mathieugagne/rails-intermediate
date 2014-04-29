@@ -1,0 +1,77 @@
+<h1 class="page-header">Creating Projects</h1>
+<h2>Goals</h2>
+<ul>
+  <table class="table table-bordered">
+    <thead><tr><th>Projects</th></tr></thead>
+    <tbody>
+      <tr><td>id</td></tr>
+      <tr><td>title</td></tr>
+      <tr><td>description</td></tr>
+    </tbody>
+  </table>
+  <div class="message">
+    <p>The project management system has a list of projects that people can work on. We'll store our projects in the database. In this step you'll do the following:</p>
+  </div>
+  <li>
+    <div class="message">
+      <p>Create a a simple <em>Table</em> in the database for projects with a title and a description</p>
+    </div>
+  </li>
+  <li>
+    <div class="message">
+      <p>Automatically generate the corresponding <em>Scaffold</em> in Rails (namely, the <em>Model</em>, the <em>View</em>, and the <em>Controller</em>).</p>
+    </div>
+  </li>
+</ul>
+<h3>Step 1</h3>
+<blockquote>
+  <div class="console">
+    <span>Type this in the terminal:</span>
+    <pre>rails generate scaffold project title:string description:text</pre>
+  </div>
+  <div class="message">
+    <ul>
+      <li>
+        <code>generate scaffold</code> tells rails to create everything necessary to get up and running with projects.
+      </li>
+      <li>
+        <code>project</code> tells rails the name of the new model.
+      </li>
+      <li>
+        <code>title:string</code> says that projects have a title, which is a "string".
+      </li>
+      <li>
+        <code>description:text</code> says that projects have a description which is a "text".
+      </li>
+    </ul>
+  </div>
+</blockquote>
+<h3>Step 2</h3>
+<blockquote>
+  <div class="console">
+    <span>Type this in the terminal:</span><pre>rake db:migrate</pre>
+  </div>
+  <div class="message">
+    <p>This tells rails to update the database to include a table for our new model.</p>
+  </div>
+</blockquote>
+<h3>Step 3</h3>
+<blockquote>
+  <p>Set your home route to list projects by adding this line to <code>config/routes.rb</code></p>
+  <pre><code class="ruby">root 'projects#index'</code></pre>
+</blockquote>
+<h2>Explanation</h2>
+<blockquote>
+  <h4>Rake</h4>
+  <div class="message">
+    <p><code>rake</code> <em>(ruby make)</em> is a tool that allows you to run small Ruby programs (<strong>tasks</strong>) that you use often in your application.</p>
+
+    <p>Here, <code>rake db:migrate</code> is a task provided by the Rails framework. It creates a bunch of new files, including a <em>migration</em>, a <em>model</em>, a <em>view</em>, and a <em>controller</em>.</p>
+  </div>
+  <div class="alert alert-info">
+    <h5>
+      <i class="fa fa-info-circle fa-2x"></i>
+      You can run <code>rake -T</code> to see a list of all the <code>rake</code> commands your app currently responds to, along with a short description of each task.
+    </h5>
+  </div>
+</blockquote>

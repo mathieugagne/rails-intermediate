@@ -1,0 +1,58 @@
+<h1 class="page-header">Adding Validation</h1>
+<h2>Goals</h2>
+<ul>
+  <li><h4>Validate the presence of a project title</h4></li>
+</ul>
+<hr />
+<p>
+  It is important that no one can create projects without a title. We want to ensure that only valid data is saved into your database.
+</p>
+<p>
+  Rails has a guide on <a href="http://guides.rubyonrails.org/active_record_validations.html">Active Record Validations</a>. It is encouraged to learn the <a href="http://guides.rubyonrails.org/active_record_validations.html#validation-helpers">Validation Helpers</a> to speed up your coding.
+</p>
+<h3>Step 1</h3>
+<blockquote>
+  <p>
+    Teach the Project model to validate the presence of title.
+  </p>
+  <p>Edit <code>app/models/project.rb</code> so that it looks like this:</p>
+  <pre><code class='ruby'>class Project &lt; ActiveRecord::Base
+  validates :title, presence: true
+end</code></pre>
+</blockquote>
+<h3>Step 2</h3>
+<blockquote>
+  <p>
+    Go to <a href="http://localhost:3000/projects">http://localhost:3000/projects</a> and create a new project.
+  </p>
+  <p>
+    Ommit the title and look what it does.
+  </p>
+  <p>
+    <%= image_tag 'title_validation.png', alt: '' %>
+  </p>
+</blockquote>
+<h3>Step 3</h3>
+<blockquote>
+  <p>
+    Open your <code>rails console</code> and reproduce an invalid project.
+  </p>
+  <pre><code class='ruby'>$ rails console
+project = Project.new
+ => #&lt;Project id: nil, title: nil, description: nil, created_at: nil, updated_at: nil&gt;
+project.valid?
+ => false
+project.errors
+ => #&lt;ActiveModel::Errors:0x00000003cb8e70 @base=#&lt;Project id: nil, title: nil, description: nil, created_at: nil, updated_at: nil&gt;, @messages={:title=>["can't be blank"]}&gt;
+project.errors.full_messages
+ => ["Title can't be blank"]</code></pre>
+  <p>
+    Try saving the project anyway with <code>save</code> and <code>save!</code>.
+  </p>
+</blockquote>
+<h2>Explanation</h2>
+<blockquote>
+  <p>Validations in Rails are defined in the model. You can challenge attributes on various rules such as format, length, inclusion, numericality, presence or absence, uniqueness and more.</p>
+  <p>You can also create your own validators for more complex setups.</p>
+  <div class="alert alert-warning">There are many ways to change the state of an object in the database. Some methods will trigger validations, but some will not. This means that it's possible to save an object in the database in an invalid state if you aren't careful.</div>
+</blockquote>

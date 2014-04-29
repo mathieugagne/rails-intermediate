@@ -1,0 +1,53 @@
+<h1 class="page-header">Adding Authentication with Devise</h1>
+<p>Devise is a flexible authentication solution for Rails based on Warden.</p>
+<p>Warden is a Rack-based middleware, designed to provide a mechanism for authentication in Ruby web applications.  It is a common mechanism that fits into the Rack Machinery to offer powerful options for authentication.</p>
+<p>Devise is a complete MVC solution based on Rails engines and a modularity concept: use just what you really need.</p>
+<h2>Goals</h2>
+<p>
+  We will install an authentication system to prevent hackers, thieves, robots and other undesirable guests from accessing our data.
+</p>
+<ul>
+  <li><h4>Add Devise to your dependency list</h4></li>
+  <li><h4>Ask bundle to update your dependencies</h4></li>
+</ul>
+
+<h3>Step 1</h3>
+<blockquote>
+  <p>To add <code>Devise</code> to your application, simply tell <code>Bundler</code> to load it from <a href="http://rubygems.org/gems">rubygems.org</a></p>
+  <p>Start by adding the following line to your <code>Gemfile</code></p>
+  <pre><code class='ruby'>gem 'devise'</code></pre>
+</blockquote>
+
+<h3>Step 2</h3>
+<blockquote>
+  <p>Run <code>bundle</code> from the terminal to add <code>Devise</code> to your application</p>
+  <pre><code class='ruby'>bundle</code></pre>
+  <p>
+    <a href="http://bundler.io/">Bundler</a> provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed.
+  </p>
+  <p>Bundler is an exit from dependency hell, and ensures that the gems you need are present in development, staging, and production.</p>
+</blockquote>
+
+<h3>Step 3</h3>
+<blockquote>
+  <p>
+    Use the <code>Devise</code> generator to generator an <code>initializer</code>. Read more on <a href="http://guides.rubyonrails.org/initialization.html">Rails Initialization Process</a>
+  </p>
+  <pre><code class="ruby">rails g devise:install</code></pre>
+</blockquote>
+
+<h2>Explanation</h2>
+<p>
+  From <a href="http://guides.rubyonrails.org/engines.html">Getting Started with Engines</a> Rails Guide:
+</p>
+<blockquote>
+  <p>
+    Engines can be considered miniature applications that provide functionality to
+    their host applications. A Rails application is actually just a "supercharged"
+    engine, with the <code>Rails::Application</code> class inheriting a lot of its behavior
+    from <code>Rails::Engine</code>.
+  </p>
+</blockquote>
+<p>
+  Have a look at <a href="https://github.com/plataformatec/devise">Devise</a> and observe the folder architecture.
+</p>

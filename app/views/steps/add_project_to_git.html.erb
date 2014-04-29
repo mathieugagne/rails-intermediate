@@ -1,0 +1,75 @@
+<h1 class="page-header">Add The Project To A Git Repo</h1>
+<h2>Goals</h2>
+<ul>
+  <li>
+    <div class="message">
+      <p>Create a local git repository</p>
+    </div>
+  </li>
+  <li>
+    <div class="message">
+      <p>Add all our files to the git repository</p>
+    </div>
+  </li>
+  <div class="message">
+    <p>In order to publish our application, we need to add our application and any changes we make over time to a "revision control system". In our case we're going to use <em>git</em> because it is (relatively) easy and it is what our app server, <em>Heroku</em>, uses.</p>
+  </div>
+</ul>
+<h3>Step 1</h3>
+<blockquote>
+  <div class="console">
+    <span>Type this in the terminal:</span><pre>git init</pre>
+  </div>
+  <div class="message">
+    <p>It doesn't look like anything really happened, but 'git init' initialized its repository (repo) in a hidden directory called <code>.git</code>. You can see this by typing <code>ls -a</code> (list all files).</p>
+  </div>
+</blockquote>
+<h3>Step 2</h3>
+<blockquote>
+  <div class="console">
+    <span>Type this in the terminal:</span><pre>git status</pre>
+  </div>
+  <div class="message">
+    <p><code>git status</code> tells you everything git sees as modified, new, or missing.</p>
+  </div>
+  <div class="message">
+    <p>The first time you run this, you should see a ton of stuff.</p>
+  </div>
+  <div class="message">
+    <p>The second time you run this, you shouldn't see much of anything.</p>
+  </div>
+</blockquote>
+<h3>Step 3</h3>
+<blockquote>
+  <div class="console">
+    <span>Type this in the terminal:</span><pre>git add .</pre>
+  </div>
+  <div class="message">
+    <p><code>git add .</code> tells git that you want to add the current directory (aka <code>.</code>) and everything under it to the repo.</p>
+  </div>
+</blockquote>
+<div class="step">
+  <h3>Step 4</h3>
+  <blockquote>
+    <div class="console">
+      <span>Type this in the terminal:</span><pre>git commit -m "Initial commit"</pre>
+    </div>
+    <div class="message">
+      <p><code>git commit</code> tells git to actually <em>do</em> all things you've said you wanted to do.</p>
+    </div>
+    <div class="message">
+      <p>This is done in two steps so you can group multiple changes together.</p>
+    </div>
+    <div class="message">
+      <p><code>-m "Initial commit"</code>  is just a shortcut to say what your commit message is. You can skip that part and git will bring up an editor to fill out a more detailed message.</p>
+    </div>
+  </blockquote>
+</div>
+<div class="explanation">
+  <h2>Explanation</h2>
+  <blockquote>
+    <div class="message">
+      <p>By checking your application into git now, you're creating a record of your starting point. Whenever you make a change during today's workshop, we'll add it to git before moving on. This way, if anything ever breaks, or you make a change you don't like, you can use git as an all-powerful "undo" technique. But that only works when you remember to commit early and often!</p>
+    </div>
+  </blockquote>
+</div>
