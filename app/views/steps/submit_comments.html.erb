@@ -1,0 +1,78 @@
+<h1 class="page-header">Submit Comments</h1>
+<p>Time to let our post new comments to their projects.</p>
+<h2>Goals</h2>
+<ul>
+  <li><h4>Create a comment form</h4></li>
+  <li><h4>Answer to post request and render projects show</h4></li>
+</ul>
+
+<h3>Step 1</h3>
+<blockquote>
+  <p>Start by instantiating a <code>@comment</code> variable to hold our new comment. In our <code>ProjectsController</code>, we will use the <code>build</code> method to instantiate a new <code>@comment</code> for this project.</p>
+  <pre><code class="ruby">class ProjectsController &lt; ApplicationController
+  # ...
+  def show
+    @comments = @project.comments.order(created_at: :desc)
+    @comment = @project.comments.build
+  end
+  # ...
+end</code></pre>
+</blockquote>
+
+<h3>Step 2</h3>
+<blockquote>
+  <p>Using <code>form_for</code> helper method, we will create a comments form for users to add a comment.</p>
+  <p>Under the comments list of a project, add the following code:</p>
+  <pre><code>&lt;%= form_for [@project, @comment] do |f| %&gt;
+  &lt;h3&gt;Post a reply&lt;/h3&gt;
+  &lt;div class="field"&gt;
+    &lt;%= f.text_area :text %&gt;
+  &lt;/div&gt;
+  &lt;%= f.submit 'Submit' %&gt;
+&lt;% end %&gt;</code></pre>
+</blockquote>
+
+<h3>Step 3</h3>
+<blockquote>
+  <p>
+    We add the routes to handle the form in <code>config/routes.rb</code>. Nested routes will require both objects in the path.
+  </p>
+<pre><code class='ruby'>resources :projects do
+  resources :comments, only: :create
+end</code></pre>
+</blockquote>
+
+<h3>Step 4</h3>
+<blockquote>
+  <p>Finally, we create the controller and action to answer to the post request.</p>
+  <p>
+    <code>rails g controller comments create</code> will create a controller called CommentsController with a single action <code>create</code>
+  </p>
+  <p>Add the following code to the controller to handle comment creation.</p>
+  <pre><code class='ruby'>class CommentsController &lt; ApplicationController
+  def create
+    @project = Project.find(params[:project_id])
+    @comment = @project.comments.new(comment_params)
+    @comment.user = current_user
+    if @comment.save
+      redirect_to @project, notice: 'Comment was successfully posted.'
+    else
+      render @project
+    end
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text)
+  end
+end</code></pre>
+</blockquote>
+
+<h2>Explanation</h2>
+<p>
+  <code>render</code> is not specific to your controller and can also be useful in your views. It can be use in many different ways. Read <a href="http://guides.rubyonrails.org/layouts_and_rendering.html#using-render">Layouts and Rendering</a> Rails guide to learn more.
+</p>
+<p>
+  Rails makes it easy to add forms to your views. <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html">Form helpers</a> are designed to make working with resources much easier compared to using vanilla HTML.
+</p>

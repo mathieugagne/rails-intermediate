@@ -27,7 +27,7 @@ User.create(email: 'admin@demo.com', password: 'foobar11', password_confirmation
 <blockquote>
   <p>Add a <em>sign out</em> link to the top of your views. Copy the following in your <code>app/views/layouts/application.html.erb</code> file above <code>yield</code></p>
   <pre><code class="erb">&lt;body&gt;
-  &lt;%= link_to 'Log out', destroy_user_session_path, method: :delete %&gt;
+  &lt;%= link_to 'Log out', destroy_user_session_path, method: :delete if user_signed_in? %&gt;
   &lt;%= yield %&gt;
 &lt;/body&gt;</code></pre>
 </blockquote>

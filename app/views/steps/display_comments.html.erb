@@ -1,0 +1,52 @@
+<h1 class="page-header">Display Comments</h1>
+<p>
+  We have created a <code>Comment</code> model and database table to store our projects' comments. Let's list the comments for each projects and add a counter to our index view for visibility.
+</p>
+<h2>Goals</h2>
+<ul>
+  <li><h4>Render a collection of comments</h4></li>
+  <li><h4>Add comments count to projects index</h4></li>
+</ul>
+
+<h3>Step 1</h3>
+<blockquote>
+  <p>Start by instantiating a <code>@comments</code> variable to hold our project's comments. In our <code>ProjectsController</code>, let's define <code>@comments</code> ordered with the most recent on top.</p>
+  <pre><code class="ruby">class ProjectsController &lt; ApplicationController
+  # ...
+  def show
+    @comments = @project.comments.order(created_at: :desc)
+  end
+  # ...
+end</code></pre>
+</blockquote>
+
+<h3>Step 2</h3>
+<blockquote>
+  <p>Use <code>render</code> to display a collection of comments. Rails determines the name of the partial to use by looking at the model name in the collection. In this case, Rails will look for a partial at <code>app/views/comments/_comment.html.erb</code>.</p>
+  <p>Add the <code>render</code> block in <code>projects/show.html.erb</code> to the bottom of the file.</p>
+  <pre><code>&lt;h3&gt;Comments&lt;/h3&gt;
+&lt;%= render @comments %&gt;
+</code></pre>
+</blockquote>
+
+<h3>Step 3</h3>
+<blockquote>
+  <p>Next, create a partial <code>comments/_comment.html.erb</code> and add the following code:</p>
+  <pre><code>&lt;div class="comment"&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;&lt;%= comment.text %&gt;&lt;/p&gt;
+    &lt;p&gt;
+      Written by &lt;cite&gt;&lt;%= comment.user.try(:email) %&gt;&lt;/cite&gt; &lt;%= time_ago_in_words(comment.created_at) %&gt; ago
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+  &lt;hr&gt;
+&lt;/div&gt;</code></pre>
+</blockquote>
+
+<h3>Step 4</h3>
+<p>Finally, we will add a comments count to our index to increase visibility. Would you know how to do this one alone?</p>
+
+<h2>Explanation</h2>
+<p>
+  <code>render</code> is not specific to your controller and can also be useful in your views. It can be use in many different ways. Read <a href="http://guides.rubyonrails.org/layouts_and_rendering.html#using-render">Layouts and Rendering</a> Rails guide to learn more.
+</p>

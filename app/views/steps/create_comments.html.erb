@@ -1,0 +1,60 @@
+<h1 class="page-header">Create Comments</h1>
+<table class="table table-bordered">
+  <thead><tr><th>Comments</th></tr></thead>
+  <tbody>
+    <tr><td>id</td></tr>
+    <tr><td>text</td></tr>
+    <tr><td>created_by_id</td></tr>
+    <tr><td>commentable_id</td></tr>
+    <tr><td>commentable_type</td></tr>
+  </tbody>
+</table>
+<p>
+  Having a description is one thing but we need a way for users to keep track of various activity on the project without polluting its description.
+</p>
+<p>
+  So we decide to add comments to our application. Most likely going to need that somewhere else other then projects so we'll keep polymorphism in mind.
+</p>
+<h2>Goals</h2>
+<ul>
+  <li><h4>Create a <code>Comment</code> model and database structure</h4></li>
+  <li><h4>Learn about Rails Polymorphism</h4></li>
+  <li><h4>Add comments/projects relationship</h4></li>
+  <li><h4>Add comments/users relationship</h4></li>
+</ul>
+
+<h3>Step 1</h3>
+<blockquote>
+  <p>Use Rails model generator to quickly create a Comment model with the desired information.</p>
+  <pre><code>rails g model comment text:text user:references commentable:references{polymorphic}</code></pre>
+</blockquote>
+
+<h3>Step 2</h3>
+<blockquote>
+  <p>Migrate your database to create a `comments` table</p>
+  <pre><code>rake db:migrate</code></pre>
+</blockquote>
+
+<h3>Step 3</h3>
+<blockquote>
+  <p>Associate Projects to Comments by adding this line to <code>app/models/project.rb</code></p>
+  <pre><code>has_many :comments, as: :commentable</code></pre>
+</blockquote>
+
+<h3>Step 4</h3>
+<blockquote>
+  <p>Associate Users to Comments by adding this line to <code>app/models/user.rb</code></p>
+  <pre><code>has_many :comments</code></pre>
+</blockquote>
+
+<h3>Step 5</h3>
+<blockquote>
+  <p>Ensure our associations are working properly by testing with the Rails console</p>
+  <pre><code>$ rails c
+project = Project.first
+project.comments
+project.comments.create(text: "What's up doc?", user: User.first)
+user = User.first
+user.comments
+</code></pre>
+</blockquote>

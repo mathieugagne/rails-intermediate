@@ -29,10 +29,16 @@
   <li class="<%= 'active' if current_page?('/create-comments') %>">
     <%= link_to 'Create Comments', create_comments_path %>
   </li>
+  <li class="<%= 'active' if current_page?('/display-comments') %>">
+    <%= link_to 'Display Comments', display_comments_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/submit-comments') %>">
+    <%= link_to 'Submit Comments', submit_comments_path %>
+  </li>
   <li class="<%= 'active' if current_page?('/add-projects-workflow') %>">
     <%= link_to 'Add Workflow to your Projects', add_projects_workflow_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/sort-projects') %>">
-    <%= link_to 'Sort Projects', sort_projects_path %>
+  <li class="<%= 'active' if current_page?('/next-steps') %>">
+    <%= link_to 'Next Steps', next_steps_path %>
   </li>
 </ul>

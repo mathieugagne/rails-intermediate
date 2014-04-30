@@ -1,0 +1,59 @@
+<h1 class="page-header">Add Project Workflow</h1>
+<p>
+  Every project has a progress state. It is either <code>pending</code>, <code>ongoing</code>, <code>completed</code> or <code>canceled</code>. Add a state machine to your projects to keep track of their progress.
+</p>
+<h2>Goals</h2>
+<ul>
+  <li><h4>Use Rails 4.1 latest feature: <code>enum</code></h4></li>
+  <li><h4>Generate a migration to add project's status</h4></li>
+  <li><h4>Add status to projects index</h4></li>
+</ul>
+
+<h3>Step 1</h3>
+<blockquote>
+  <p>
+    Read documentation on <a href="http://api.rubyonrails.org/v4.1.0/classes/ActiveRecord/Enum.html">ActiveRecord Enum</a>.
+  </p>
+  <p>
+    Information is given on the content of the migration and the type of data the column must be.
+  </p>
+  <p>
+    Generate the migration:
+  </p>
+  <pre><code>rails g migration AddStatusToProjects status:integer</code></pre>
+  <p>
+    Before migration, set <code>default: 0</code> in your migration so that new projects have a default status <code>pending</code>.
+  </p>
+  <pre><code>rake db:migrate</code></pre>
+</blockquote>
+
+<h3>Step 2</h3>
+<blockquote>
+  <p>Add poor man's state machine to <code>Project</code></p>
+  <pre><code class="ruby">class Project &lt; ActiveRecord::Base
+  has_many :comments, as: :commentable
+  validates :title, presence: true
+
+  enum status: [:pending, :ongoing, :completed, :canceled]
+end</code></pre>
+</blockquote>
+
+<h3>Step 3</h3>
+<blockquote>
+  <p>Display project's status on index and show views.</p>
+  <p>This task is left for you to practice or complete in class with the group.</p>
+</blockquote>
+
+<h3>Step 4</h3>
+<blockquote>
+  <p>Enable status editing from project form.</p>
+  <p>First, add status input on project's form</p>
+  <pre><code>&lt;div class="field"&gt;
+  &lt;%= f.label :status %&gt;&lt;br&gt;
+  &lt;%= f.select :status, Project.statuses.keys %&gt;
+&lt;/div&gt;</code></pre>
+  <p>Then, add <code>status</code> to the list of permitted attributes in <code>ProjectsController</code></p>
+  <pre><code>def project_params
+  params.require(:project).permit(:title, :description, :status)
+end</code></pre>
+</blockquote>
