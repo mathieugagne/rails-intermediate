@@ -1,10 +1,14 @@
 <h1 class="page-header">Submit Comments</h1>
-<p>Time to let our post new comments to their projects.</p>
+<blockquote>
+  <p>Time to let our post new comments to their projects.</p>
+</blockquote>
 <h2>Goals</h2>
-<ul>
-  <li><h4>Create a comment form</h4></li>
-  <li><h4>Answer to post request and render projects show</h4></li>
-</ul>
+<blockquote>
+  <ul>
+    <li><h4>Create a comment form</h4></li>
+    <li><h4>Answer to post request and redirect to projects#show action</h4></li>
+  </ul>
+</blockquote>
 
 <h3>Step 1</h3>
 <blockquote>
@@ -70,9 +74,21 @@ end</code></pre>
 </blockquote>
 
 <h2>Explanation</h2>
-<p>
-  <code>render</code> is not specific to your controller and can also be useful in your views. It can be use in many different ways. Read <a href="http://guides.rubyonrails.org/layouts_and_rendering.html#using-render">Layouts and Rendering</a> Rails guide to learn more.
-</p>
-<p>
-  Rails makes it easy to add forms to your views. <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html">Form helpers</a> are designed to make working with resources much easier compared to using vanilla HTML.
-</p>
+<blockquote>
+  <p>
+    <code>render</code> is not specific to your controller and can also be useful in your views. It can be use in many different ways. Read <a href="http://guides.rubyonrails.org/layouts_and_rendering.html#using-render">Layouts and Rendering</a> Rails guide to learn more.
+  </p>
+  <p>
+    Rails makes it easy to add forms to your views. <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html">Form helpers</a> are designed to make working with resources much easier compared to using vanilla HTML.
+  </p>
+  <h3>Strong Parameters</h3>
+  <p>
+    It provides an interface for protecting attributes from end-user assignment. This makes Action Controller parameters forbidden to be used in Active Model mass assignment until they have been whitelisted.
+  </p>
+  <p>
+    In addition, parameters can be marked as required and flow through a predefined raise/rescue flow to end up as a 400 Bad Request with no effort.
+  </p>
+  <p>
+    Read more on <a href="http://api.rubyonrails.org/classes/ActionController/StrongParameters.html">Strong Parameters</a>.
+  </p>
+</blockquote>

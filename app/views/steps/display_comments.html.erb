@@ -1,16 +1,21 @@
 <h1 class="page-header">Display Comments</h1>
-<p>
-  We have created a <code>Comment</code> model and database table to store our projects' comments. Let's list the comments for each projects and add a counter to our index view for visibility.
-</p>
+<blockquote>
+  <p>
+    We have created a <code>Comment</code> model and database table to store our projects' comments. Let's list the comments for each projects and add a counter to our index view for visibility.
+  </p>
+</blockquote>
 <h2>Goals</h2>
-<ul>
-  <li><h4>Render a collection of comments</h4></li>
-  <li><h4>Add comments count to projects index</h4></li>
-</ul>
+<blockquote>
+  <ul>
+    <li><h4>Order comments starting with the most recent on top</h4></li>
+    <li><h4>Render a collection of comments with a single partial</h4></li>
+    <li><h4>Add comments count to projects index</h4></li>
+  </ul>
+</blockquote>
 
 <h3>Step 1</h3>
 <blockquote>
-  <p>Start by instantiating a <code>@comments</code> variable to hold our project's comments. In our <code>ProjectsController</code>, let's define <code>@comments</code> ordered with the most recent on top.</p>
+  <p>Start by instantiating a <code>@comments</code> variable to hold our projects' comments. In our <code>ProjectsController</code>, let's define <code>@comments</code> ordered with the most recent on top.</p>
   <pre><code class="ruby">class ProjectsController &lt; ApplicationController
   # ...
   def show

@@ -1,20 +1,25 @@
 <h1 class="page-header">Create Comments</h1>
-<table class="table table-bordered">
-  <thead><tr><th>Comments</th></tr></thead>
-  <tbody>
-    <tr><td>id</td></tr>
-    <tr><td>text</td></tr>
-    <tr><td>created_by_id</td></tr>
-    <tr><td>commentable_id</td></tr>
-    <tr><td>commentable_type</td></tr>
-  </tbody>
-</table>
-<p>
-  Having a description is one thing but we need a way for users to keep track of various activity on the project without polluting its description.
-</p>
-<p>
-  So we decide to add comments to our application. Most likely going to need that somewhere else other then projects so we'll keep polymorphism in mind.
-</p>
+<blockquote>
+  <table class="table table-bordered">
+    <thead><tr><th>Comments</th></tr></thead>
+    <tbody>
+      <tr><td>id</td></tr>
+      <tr><td>text</td></tr>
+      <tr><td>created_by_id</td></tr>
+      <tr><td>commentable_id</td></tr>
+      <tr><td>commentable_type</td></tr>
+    </tbody>
+  </table>
+  <p>
+    We need a way for users to keep track of various activity on the project without polluting the project's description.
+  </p>
+  <p>
+    So we decide to add comments to our application.
+  </p>
+  <p>
+    Knowing how versatile comments can be, we assume we will need commenting in other parts of our application other than projects. To do so, we keep polymorphism in mind.
+  </p>
+</blockquote>
 <h2>Goals</h2>
 <ul>
   <li><h4>Create a <code>Comment</code> model and database structure</h4></li>
@@ -55,6 +60,12 @@ project = Project.first
 project.comments
 project.comments.create(text: "What's up doc?", user: User.first)
 user = User.first
-user.comments
-</code></pre>
+user.comments</code></pre>
+</blockquote>
+
+<h2>Explanation</h2>
+<blockquote>
+  <p>With polymorphic associations, a model can belong to more than one other model, on a single association.</p>
+  <p>We declared the <code>commentable</code> interface to share the comments association to other models.</p>
+  <p>Read more about polymorphic associations in <a href="http://guides.rubyonrails.org/association_basics.html#polymorphic-associations">ActiveRecord Associations</a> Rails Guide</p>
 </blockquote>

@@ -1,24 +1,22 @@
 <h1 class="page-header">Add Project Workflow</h1>
-<p>
-  Every project has a progress state. It is either <code>pending</code>, <code>ongoing</code>, <code>completed</code> or <code>canceled</code>. Add a state machine to your projects to keep track of their progress.
-</p>
+<blockquote>
+  <p>
+    Every project has a progress state. It is either <code>pending</code>, <code>ongoing</code>, <code>completed</code> or <code>canceled</code>. Add a state machine to your projects to keep track of their progress.
+  </p>
+</blockquote>
 <h2>Goals</h2>
-<ul>
-  <li><h4>Use Rails 4.1 latest feature: <code>enum</code></h4></li>
-  <li><h4>Generate a migration to add project's status</h4></li>
-  <li><h4>Add status to projects index</h4></li>
-</ul>
+<blockquote>
+  <ul>
+    <li><h4>Use Rails 4.1 latest feature: <code>enum</code></h4></li>
+    <li><h4>Generate a migration to add project's status</h4></li>
+    <li><h4>Add status to projects index</h4></li>
+  </ul>
+</blockquote>
 
 <h3>Step 1</h3>
 <blockquote>
   <p>
-    Read documentation on <a href="http://api.rubyonrails.org/v4.1.0/classes/ActiveRecord/Enum.html">ActiveRecord Enum</a>.
-  </p>
-  <p>
-    Information is given on the content of the migration and the type of data the column must be.
-  </p>
-  <p>
-    Generate the migration:
+    Generate the migration to store a project status.
   </p>
   <pre><code>rails g migration AddStatusToProjects status:integer</code></pre>
   <p>
@@ -29,7 +27,7 @@
 
 <h3>Step 2</h3>
 <blockquote>
-  <p>Add poor man's state machine to <code>Project</code></p>
+  <p>Use <code>enum</code> to add poor man's state machine to <code>Project</code></p>
   <pre><code class="ruby">class Project &lt; ActiveRecord::Base
   has_many :comments, as: :commentable
   validates :title, presence: true
@@ -56,4 +54,18 @@ end</code></pre>
   <pre><code>def project_params
   params.require(:project).permit(:title, :description, :status)
 end</code></pre>
+</blockquote>
+
+<h2>Explanation</h2>
+<blockquote>
+  <h3>Enum</h3>
+  <p>
+    Declare an enum attribute where the values map to integers in the database, but can be queried by name.
+  </p>
+  <p>
+    Additionally, <code>enum</code> will create the <code>bang!</code> and <code>boolean?</code> versions for each possible value.
+  </p>
+  <p>
+    Read more on <a href="http://api.rubyonrails.org/v4.1.0/classes/ActiveRecord/Enum.html">ActiveRecord Enum</a>.
+  </p>
 </blockquote>
