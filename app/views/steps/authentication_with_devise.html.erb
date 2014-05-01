@@ -1,15 +1,20 @@
 <h1 class="page-header">Adding Authentication with Devise</h1>
-<p>Devise is a flexible authentication solution for Rails based on Warden.</p>
-<p>Warden is a Rack-based middleware, designed to provide a mechanism for authentication in Ruby web applications.  It is a common mechanism that fits into the Rack Machinery to offer powerful options for authentication.</p>
-<p>Devise is a complete MVC solution based on Rails engines and a modularity concept: use just what you really need.</p>
+<blockquote>
+  <p>Devise is a flexible authentication solution for Rails based on Warden.</p>
+  <p>Warden is a Rack-based middleware, designed to provide a mechanism for authentication in Ruby web applications.  It is a common mechanism that fits into the Rack Machinery to offer powerful options for authentication.</p>
+  <p>Devise is a complete MVC solution based on Rails engines and a modularity concept: use just what you really need.</p>
+</blockquote>
+
 <h2>Goals</h2>
-<p>
-  We will install an authentication system to prevent hackers, thieves, robots and other undesirable guests from accessing our data.
-</p>
-<ul>
-  <li><h4>Add Devise to your dependency list</h4></li>
-  <li><h4>Ask bundle to update your dependencies</h4></li>
-</ul>
+<blockquote>
+  <p>
+    We will install an authentication system to prevent hackers, thieves, robots and other undesirable guests from accessing our data.
+  </p>
+  <ul>
+    <li><h4>Add Devise to your dependency list</h4></li>
+    <li><h4>Ask bundle to update your dependencies</h4></li>
+  </ul>
+</blockquote>
 
 <h3>Step 1</h3>
 <blockquote>
@@ -26,6 +31,7 @@
     <a href="http://bundler.io/">Bundler</a> provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed.
   </p>
   <p>Bundler is an exit from dependency hell, and ensures that the gems you need are present in development, staging, and production.</p>
+  <div class="alert alert-info">Find yourself squinting over the result? Try <code>bundle | grep devise</code></div>
 </blockquote>
 
 <h3>Step 3</h3>
@@ -37,17 +43,18 @@
 </blockquote>
 
 <h2>Explanation</h2>
-<p>
-  From <a href="http://guides.rubyonrails.org/engines.html">Getting Started with Engines</a> Rails Guide:
-</p>
 <blockquote>
+  <p>
+    From <a href="http://guides.rubyonrails.org/engines.html">Getting Started with Engines</a> Rails Guide:
+  </p>
   <p>
     Engines can be considered miniature applications that provide functionality to
     their host applications. A Rails application is actually just a "supercharged"
     engine, with the <code>Rails::Application</code> class inheriting a lot of its behavior
     from <code>Rails::Engine</code>.
   </p>
+  <p>
+    Have a look at <a href="https://github.com/plataformatec/devise">Devise</a> and observe the folder architecture.
+  </p>
+  <p>Now is also a good time to have a look at <a href="https://www.ruby-toolbox.com/">Ruby Toolbox</a>. Ruby Toolbox is a giant categorized collection of available gems with some meta data associated to it. You can easily find the gem you're looking for and see if it is still under development.</p>
 </blockquote>
-<p>
-  Have a look at <a href="https://github.com/plataformatec/devise">Devise</a> and observe the folder architecture.
-</p>

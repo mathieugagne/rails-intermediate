@@ -1,15 +1,16 @@
 <h1 class="page-header">Adding Validation</h1>
 <h2>Goals</h2>
-<ul>
-  <li><h4>Validate the presence of a project title</h4></li>
-</ul>
-<hr />
-<p>
-  It is important that no one can create projects without a title. We want to ensure that only valid data is saved into your database.
-</p>
-<p>
-  Rails has a guide on <a href="http://guides.rubyonrails.org/active_record_validations.html">Active Record Validations</a>. It is encouraged to learn the <a href="http://guides.rubyonrails.org/active_record_validations.html#validation-helpers">Validation Helpers</a> to speed up your coding.
-</p>
+<blockquote>
+  <ul>
+    <li><h4>Validate the presence of a project title</h4></li>
+  </ul>
+  <p>
+    It is important that no one can create projects without a title. We want to ensure that only valid data is saved into your database.
+  </p>
+  <p>
+    Rails has a guide on <a href="http://guides.rubyonrails.org/active_record_validations.html">Active Record Validations</a>. It is encouraged to learn the <a href="http://guides.rubyonrails.org/active_record_validations.html#validation-helpers">Validation Helpers</a> to speed up your coding.
+  </p>
+</blockquote>
 <h3>Step 1</h3>
 <blockquote>
   <p>
@@ -26,7 +27,7 @@ end</code></pre>
     Go to <a href="http://localhost:3000/projects">http://localhost:3000/projects</a> and create a new project.
   </p>
   <p>
-    Ommit the title and look what it does.
+    Ommit the title and observe the result.
   </p>
   <p>
     <%= image_tag 'title_validation.png', alt: '' %>
@@ -54,5 +55,7 @@ project.errors.full_messages
 <blockquote>
   <p>Validations in Rails are defined in the model. You can challenge attributes on various rules such as format, length, inclusion, numericality, presence or absence, uniqueness and more.</p>
   <p>You can also create your own validators for more complex setups.</p>
+  <p>Validation errors are carried with the object to the view. There is no need for flash messages.</p>
+  <p>An invalid record will not be persisted to the database unless forced to.</p>
   <div class="alert alert-warning">There are many ways to change the state of an object in the database. Some methods will trigger validations, but some will not. This means that it's possible to save an object in the database in an invalid state if you aren't careful.</div>
 </blockquote>

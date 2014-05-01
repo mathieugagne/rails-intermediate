@@ -1,11 +1,15 @@
 <h1 class="page-header">Adding Users with Devise</h1>
-<p>
-  Now that you have <code>Devise</code> installed, we will ask him to create a <code>User</code> model to track access to Milo.
-</p>
+<blockquote>
+  <p>
+    Now that you have <code>Devise</code> installed, we will ask him to create a <code>User</code> model to track access to Milo.
+  </p>
+</blockquote>
 <h2>Goals</h2>
-<ul>
-  <li><h4>Create a <code>User</code> model</h4></li>
-</ul>
+<blockquote>
+  <ul>
+    <li><h4>Create a <code>User</code> model</h4></li>
+  </ul>
+</blockquote>
 
 <h3>Step 1</h3>
 <blockquote>
@@ -22,11 +26,26 @@
   <pre><code>rake db:migrate</code></pre>
 </blockquote>
 
+<h3>Step 3</h3>
+<blockquote>
+  <p>Remove the <code>:registerable</code> module from your <code>User</code> model since we don't want users to sign up on their own and gain access to our top secret projects.</p>
+</blockquote>
+
 <h2>Explanation</h2>
-<p>
-  <code>Devise</code> provided a few helper methods to ease our way into authentication.
-</p>
-<ul>
-  <li><code>current_user</code> is our signed in user instance.</li>
-  <li><code>user_signed_in?</code> returns true or false if the user is authenticated.</li>
-</ul>
+<blockquote>
+  <p>Devise generated the necessary routes specific to the <code>User</code> model we created. Have a look at them with <code>rake routes</code></p>
+  <p>
+    <code>Devise</code> provided a few helper methods to ease our way into authentication.
+  </p>
+  <ul>
+    <li><code>current_user</code> is our signed in user instance.</li>
+    <li><code>user_signed_in?</code> returns true or false if the user is authenticated.</li>
+  </ul>
+  <p>
+    Feel like inspecting the other Devise helper methods?
+  </p>
+  <pre><code>$ rails c
+location = ApplicationController.new.method(:authenticate_user!).source_location
+`sublime-text-2 -a #{location[0]}:#{location[1]}`
+</code></pre>
+</blockquote>
